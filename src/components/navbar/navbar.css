@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.container {
+    width: 100vw;
+    min-height: 100vh;
+    background: #91cad5;
+}
+
+/* Navbar container */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 50px;
+    background-color: #ffffff00;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  /* Logo */
+  .logo {
+    width: 70px;
+    height: auto;
+    cursor: pointer;
+  }
+  
+/* Navigation links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 60px;
+    color: #fff;
+  }
+  
+  .nav-links li {
+    position: relative;
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links li::after {
+    content: "";
+    position: absolute;
+    bottom: -5px; 
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #5c9ba6;
+    transition: width 0.3s ease;
+  }
+  
+
+  .nav-links li:hover::after {
+    width: 100%;
+  }
+  
+  .nav-links li:hover {
+    color: #ffffffc4; 
+  }
+  
+    /* CTA Hire */
+  .hire-btn {
+    padding: 8px 16px;
+    background: #ffffff;
+    color: #5c9ba6;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .hire-btn:hover {
+    transform: scale(1.05);
+  }
+  
