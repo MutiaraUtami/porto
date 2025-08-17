@@ -8,77 +8,154 @@
 .container {
     width: 100vw;
     min-height: 100vh;
-    background: #91cad5;
+    background: #171717;
 }
 
 /* Navbar container */
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 50px;
-    background-color: #ffffff00;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  
-  /* Logo */
-  .logo {
-    width: 70px;
-    height: auto;
-    cursor: pointer;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 50px;
+  background-color: #ffffff00; /* Consider a solid color for mobile */
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Logo */
+.logo {
+  width: 70px;
+  height: auto;
+  cursor: pointer;
+}
+
 /* Navigation links */
 .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 60px;
-    color: #fff;
-  }
-  
-  .nav-links li {
-    position: relative;
-    cursor: pointer;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-links li::after {
-    content: "";
-    position: absolute;
-    bottom: -5px; 
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #5c9ba6;
-    transition: width 0.3s ease;
-  }
-  
+  display: flex;
+  list-style: none;
+  gap: 60px;
+  color: #fff;
+  align-items: center; /* Vertically align items */
+}
 
-  .nav-links li:hover::after {
-    width: 100%;
+.nav-links li {
+  position: relative;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links li::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #b2ef18;
+  transition: width 0.3s ease;
+}
+
+.nav-links li:hover::after {
+  width: 100%;
+}
+
+.nav-links li:hover {
+  color: #ffffffc4;
+}
+
+/* CTA Hire */
+.hire-btn {
+  padding: 8px 16px;
+  background: #b2ef18;
+  color: #1b1b1b;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hire-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Hide mobile-specific buttons by default */
+.hire-btn.mobile {
+  display: none;
+}
+
+/* Hamburger Menu Icon Styling */
+.menu-icon {
+  display: none; /* Hidden on desktop */
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 110; /* Make sure it's above the nav links */
+}
+
+.menu-icon span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Animate hamburger to 'X' */
+.menu-icon span.open:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-icon span.open:nth-child(2) {
+  opacity: 0;
+}
+.menu-icon span.open:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* =================================== */
+/* ======== RESPONSIVE STYLES ======== */
+/* =================================== */
+
+@media screen and (max-width: 830px) {
+  /* Show hamburger menu */
+  .menu-icon {
+      display: flex;
   }
-  
-  .nav-links li:hover {
-    color: #ffffffc4; 
+
+  /* Hide desktop links and button */
+  .nav-links {
+      position: absolute;
+      top: 0;
+      right: -100%; /* Start off-screen */
+      height: 100vh;
+      width: 60%;
+      background-color: #1b1b1b; /* Dark background for contrast */
+      flex-direction: column;
+      justify-content: center;
+      gap: 40px;
+      transition: right 0.5s ease-in-out;
   }
-  
-    /* CTA Hire */
-  .hire-btn {
-    padding: 8px 16px;
-    background: #ffffff;
-    color: #5c9ba6;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
+
+  /* Slide the menu in when active */
+  .nav-links.active {
+      right: 0;
   }
-  
-  .hire-btn:hover {
-    transform: scale(1.05);
+
+  /* Adjust link hover effect for mobile menu */
+  .nav-links li::after {
+      background-color: #b2ef18; /* Same highlight color */
   }
-  
+
+  /* Hide the desktop button and show the mobile one */
+  .hire-btn.desktop {
+      display: none;
+  }
+  .hire-btn.mobile {
+      display: block;
+  }
+}
